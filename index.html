@@ -3,156 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
-<meta name="theme-color" content="#2F4FC5">
+<meta name="theme-color" content="#32487F">
 <title>Linglots Mate · AI language practice</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Thai:wght@400;600&family=Noto+Serif+JP:wght@400;600&family=Noto+Serif+KR:wght@400;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Thai:wght@400;600&family=Noto+Serif+JP:wght@400;600&family=Noto+Serif+KR:wght@400;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
 <style>
-/* ───────────────────────── tokens ───────────────────────── */
+/* tokens — Journal (Option B): paper, navy & brass */
 :root{
-  --paper:#F7F6F1; --card:#FFFFFF; --ink:#1D2433; --mut:#646B78; --line:#E5E2D8; --line2:#D8D4C6;
-  --blue:#2F4FC5; --blue-deep:#24398F; --blue-soft:#E9EDFB; --blue-line:#C3CEF3;
-  --hl:#F4CE3F; --hl-soft:#FBF3D2; --hl-line:#E9D88F;
-  --red:#C2344E; --red-soft:#FAE8EC;
-  --green:#188A5E; --green-soft:#E1F3EA;
-  --bub-user:#2F4FC5; --bub-user-ink:#FFFFFF;
-  --shadow:0 10px 30px rgba(29,36,51,.10);
+  --paper:#FAF8F2; --card:#FFFFFF; --ink:#232733; --mut:#767D8C; --line:#E6E2D8; --line2:#D6D1C2;
+  --blue:#32487F; --blue-deep:#27375F; --blue-soft:#E8EBF6; --blue-line:#C7D0EA;
+  --hl:#B98A2A; --hl-soft:#F6EDD7; --hl-line:#E7D5A6;
+  --red:#B3445A; --red-soft:#F4E0E4;
+  --green:#2E7D5B; --green-soft:#DEF0E7;
+  --bub-user:#32487F; --bub-user-ink:#F5F7FD;
+  --shadow:0 12px 32px rgba(35,39,51,.08);
   --r:16px; --chat-fs:16px;
-  --ui:'Hanken Grotesk','Noto Sans Thai','Noto Sans JP','Noto Sans KR','Noto Sans SC','Noto Sans Devanagari',system-ui,-apple-system,sans-serif;
-  --disp:'Bricolage Grotesque',var(--ui);
+  --ui:'Karla','Noto Sans Thai','Noto Sans JP','Noto Sans KR','Noto Sans SC','Noto Sans Devanagari',system-ui,-apple-system,sans-serif;
+  --serif:'Literata','Noto Serif Thai','Noto Serif JP','Noto Serif KR','Noto Serif SC','Noto Serif Devanagari',Georgia,serif;
+  --disp:var(--serif);
   --mono:'IBM Plex Mono','Noto Sans Thai','Noto Sans JP','Noto Sans KR','Noto Sans SC','Noto Sans Devanagari',ui-monospace,monospace;
-  --serif:'Noto Serif','Noto Serif Thai','Noto Serif JP','Noto Serif KR','Noto Serif SC','Noto Serif Devanagari',Georgia,serif;
   --sans:var(--ui);
-  --tl-font:var(--sans);
+  --tl-font:var(--serif);
 }
 [data-theme="dark"]{
-  --paper:#10131D; --card:#1A1F2D; --ink:#ECEEF6; --mut:#98A1B3; --line:#2A3146; --line2:#343C55;
-  --blue:#8AA0F4; --blue-deep:#B9C6F8; --blue-soft:#222B49; --blue-line:#3A4878;
-  --hl:#D9BC45; --hl-soft:#2E2A16; --hl-line:#56491C;
-  --red:#EE7E94; --red-soft:#3A1F28;
-  --green:#52C594; --green-soft:#16301F;
-  --bub-user:#3D55C0; --bub-user-ink:#F2F4FF;
-  --shadow:0 10px 30px rgba(0,0,0,.45);
+  --paper:#12151F; --card:#1B202D; --ink:#EAEAE3; --mut:#9AA1B0; --line:#2A3042; --line2:#3A415A;
+  --blue:#92A6E0; --blue-deep:#C0CDF2; --blue-soft:#232B47; --blue-line:#3C4875;
+  --hl:#D3A945; --hl-soft:#2B2513; --hl-line:#55481E;
+  --red:#E78EA2; --red-soft:#3A1F28;
+  --green:#5CC494; --green-soft:#16301F;
+  --bub-user:#3D55A8; --bub-user-ink:#EFF2FF;
+  --shadow:0 12px 32px rgba(0,0,0,.5);
 }
-/* ───────────────────────── base ───────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{font-family:var(--ui);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 input,textarea,select{font:inherit;color:inherit}
-a{color:var(--blue);text-decoration:none;font-weight:600}
+a{color:var(--blue);text-decoration:none;font-weight:700}
 a:hover{text-decoration:underline}
 ::selection{background:var(--hl-soft)}
 :focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px}
 .hide{display:none!important}
 .mono{font-family:var(--mono)}
 .tl{font-family:var(--tl-font)}
-/* eyebrow: ruby-annotation style tiny label */
 .eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
-/* ───────────────────────── glyph badge (signature) ───────────────────────── */
-.badge{width:42px;height:42px;border-radius:13px;background:var(--bub-user);color:#fff;display:grid;place-items:center;flex:none;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
-.badge .glyph{font-family:var(--disp);font-weight:700;font-size:21px;line-height:1;display:block;transition:opacity .28s,transform .28s}
+/* glyph badge — signature animation kept */
+.badge{width:42px;height:42px;border-radius:14px;background:var(--bub-user);color:#fff;display:grid;place-items:center;flex:none}
+.badge .glyph{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1;display:block;transition:opacity .28s,transform .28s}
 .badge .glyph.out{opacity:0;transform:translateY(6px)}
-.badge.lg{width:76px;height:76px;border-radius:22px}
+.badge.lg{width:76px;height:76px;border-radius:24px}
 .badge.lg .glyph{font-size:40px}
 @media (prefers-reduced-motion:reduce){.badge .glyph{transition:none}}
-/* ───────────────────────── setup screen ───────────────────────── */
-#setup{min-height:100dvh;display:flex;align-items:flex-start;justify-content:center;padding:40px 18px 60px}
+/* setup */
+#setup{min-height:100dvh;display:flex;align-items:flex-start;justify-content:center;padding:44px 18px 64px}
 .su-wrap{width:100%;max-width:560px;display:flex;flex-direction:column;align-items:center;gap:8px}
-.su-title{font-family:var(--disp);font-weight:800;font-size:34px;letter-spacing:-.02em;margin-top:14px}
+.su-title{font-family:var(--disp);font-style:italic;font-weight:600;font-size:34px;letter-spacing:-.01em;margin-top:14px}
 .su-tag{color:var(--mut);margin-bottom:18px;text-align:center}
-.su-card{width:100%;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 20px 24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
-.lab{display:block;font-weight:600;font-size:13.5px;margin:12px 2px 7px}
+.su-card{width:100%;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 22px 26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.lab{display:block;font-weight:700;font-size:13.5px;margin:12px 2px 7px}
 .lab:first-child{margin-top:0}
 .inp{width:100%;background:var(--paper);border:1.5px solid var(--line2);border-radius:12px;padding:11px 13px;font-size:15px}
 .inp:focus{outline:none;border-color:var(--blue)}
 .hint{font-size:12.5px;color:var(--mut);margin:6px 2px 0}
 .hint.center{text-align:center;margin-top:14px}
 details.az{margin-top:14px;border:1px dashed var(--line2);border-radius:12px;padding:10px 13px}
-details.az summary{cursor:pointer;font-weight:600;font-size:13.5px;color:var(--mut);list-style:none;display:flex;align-items:center;gap:8px}
+details.az summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(--mut);list-style:none;display:flex;align-items:center;gap:8px}
+details.az summary::-webkit-details-marker{display:none}
 details.az summary::before{content:"+";font-family:var(--mono);font-weight:600;color:var(--blue)}
-details.az[open] summary::before{content:"–"}
+details.az[open] summary::before{content:"\2013"}
 details.az .opt{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:var(--blue-soft);color:var(--blue-deep);padding:2px 7px;border-radius:99px}
-/* chips */
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1.5px solid var(--line2);background:var(--card);border-radius:99px;padding:7px 14px;font-size:14px;font-weight:500;transition:border-color .15s,background .15s}
 .chip:hover{border-color:var(--blue-line)}
 .chip.on{background:var(--blue-soft);border-color:var(--blue);color:var(--blue-deep);font-weight:700}
 .chip.sm{padding:5px 11px;font-size:13px}
-/* buttons */
-.btn{border-radius:12px;padding:11px 18px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .08s,filter .15s}
+.btn{border-radius:99px;padding:11px 20px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .08s,filter .15s}
 .btn:active{transform:scale(.98)}
-.btn.prime{background:var(--bub-user);color:#fff;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
-.btn.prime:hover{filter:brightness(1.07)}
+.btn.prime{background:var(--bub-user);color:#fff}
+.btn.prime:hover{filter:brightness(1.1)}
 .btn.big{width:100%;padding:14px;font-size:16px;margin-top:18px}
 .btn.ghost{border:1.5px solid var(--line2);background:var(--card)}
 .btn:disabled{opacity:.5;cursor:default}
-/* ───────────────────────── app shell ───────────────────────── */
-#app{height:100dvh;display:flex;flex-direction:column;max-width:760px;margin:0 auto;position:relative}
-header{display:flex;align-items:center;gap:11px;padding:12px 14px 8px}
+/* app shell */
+#app{height:100dvh;display:flex;flex-direction:column;max-width:760px;margin:0 auto;width:100%;position:relative}
+#side{position:relative;flex:none}
+#side header{display:flex;align-items:center;gap:11px;padding:12px 14px 8px;padding-inline-end:142px}
 .ht{min-width:0;flex:1}
-.hname{font-family:var(--disp);font-weight:800;font-size:18px;letter-spacing:-.01em;line-height:1.15}
-.hsub{font-size:10.5px;color:var(--mut);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
-.hbtns{display:flex;gap:4px}
+.hname{font-family:var(--disp);font-style:italic;font-weight:600;font-size:19px;letter-spacing:-.01em;line-height:1.15}
+.hsub{font-family:var(--mono);font-size:10px;color:var(--mut);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
+.hbtns{display:flex;gap:2px}
+.sideactions{position:absolute;top:13px;inset-inline-end:10px}
 .iconbtn{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:var(--mut);transition:background .15s,color .15s}
 .iconbtn:hover{background:var(--blue-soft);color:var(--blue-deep)}
-.iconbtn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-/* tabs */
-.seg{display:flex;gap:4px;background:var(--card);border:1px solid var(--line);padding:4px;border-radius:13px;margin:4px 14px 10px}
-.seg button{flex:1;padding:8px;border-radius:9px;font-weight:600;font-size:14px;color:var(--mut)}
+.iconbtn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ibl{display:none}
+#maincol{flex:1;min-height:0;display:flex;flex-direction:column}
+.seg{display:flex;gap:4px;background:var(--card);border:1px solid var(--line);padding:4px;border-radius:99px;margin:4px 14px 10px}
+.seg button{flex:1;padding:8px;border-radius:99px;font-weight:600;font-size:14px;color:var(--mut)}
 .seg button.on{background:var(--blue-soft);color:var(--blue-deep);font-weight:700}
-/* ───────────────────────── chat ───────────────────────── */
+/* chat */
 .view{flex:1;overflow-y:auto;padding:6px 14px 16px;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){.view{scroll-behavior:auto}}
 #msgs{display:flex;flex-direction:column;gap:14px;max-width:680px;margin:0 auto}
 .empty{margin:48px auto 0;text-align:center;color:var(--mut);max-width:300px;font-size:14px}
 .row-m{display:flex;flex-direction:column;max-width:86%}
 .row-m.user{align-self:flex-end;align-items:flex-end}
 .row-m.ai{align-self:flex-start;align-items:flex-start}
-.bub{padding:11px 15px;border-radius:18px;font-size:var(--chat-fs);line-height:1.65;word-break:break-word}
+.bub{padding:12px 17px;border-radius:16px;font-size:var(--chat-fs);line-height:1.7;word-break:break-word}
 .row-m.user .bub{background:var(--bub-user);color:var(--bub-user-ink);border-bottom-right-radius:5px}
-.row-m.ai .bub{background:var(--card);border:1px solid var(--line);border-bottom-left-radius:5px}
+.row-m.ai .bub{background:var(--card);border:1px solid var(--line);border-bottom-left-radius:5px;box-shadow:0 1px 2px rgba(35,39,51,.04)}
 .bub ruby rt{font-size:.55em;color:var(--mut);font-family:var(--ui);letter-spacing:0}
 .row-m.user .bub ruby rt{color:var(--bub-user-ink);opacity:.75}
-/* teacher's note (highlighter card) */
-.fixcard{background:var(--hl-soft);border:1px solid var(--hl-line);border-left:4px solid var(--hl);border-radius:13px;padding:9px 13px 10px;margin-bottom:7px;max-width:100%}
+.fixcard{background:var(--hl-soft);border:1px solid var(--hl-line);border-left:4px solid var(--hl);border-radius:12px;padding:10px 14px 11px;margin-bottom:8px;max-width:100%}
+[dir="rtl"] .fixcard{border-left:1px solid var(--hl-line);border-right:4px solid var(--hl)}
 .fixcard .eyebrow{color:var(--ink);opacity:.65;display:block;margin-bottom:5px}
 .fixline{font-size:calc(var(--chat-fs) - 2px);line-height:1.6;margin:3px 0}
 .fixline del{color:var(--red);text-decoration:line-through;text-decoration-thickness:1.5px;font-family:var(--tl-font)}
 .fixline ins{color:var(--green);text-decoration:none;font-weight:700;font-family:var(--tl-font)}
 .fixline .why{color:var(--mut);font-size:.9em}
 .arr{color:var(--mut);padding:0 3px;font-family:var(--mono)}
-/* translation box */
 .transbox{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:12px;padding:8px 12px;font-size:calc(var(--chat-fs) - 2px);color:var(--blue-deep);margin-top:6px;line-height:1.6}
-/* message actions */
-.acts{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
-.act{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--mut);border:1px solid var(--line);background:var(--card);border-radius:99px;padding:4px 10px;display:inline-flex;align-items:center;gap:5px;transition:color .15s,border-color .15s}
+.acts{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.act{font-family:var(--ui);font-size:11.5px;font-weight:700;color:var(--mut);border:1px solid var(--line);background:var(--card);border-radius:99px;padding:4px 11px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;transition:color .15s,border-color .15s}
 .act:hover{color:var(--blue-deep);border-color:var(--blue-line)}
 .act.on{color:var(--blue-deep);background:var(--blue-soft);border-color:var(--blue-line)}
 .act.ld{color:var(--blue-deep);border-color:var(--blue-line);animation:pulse 1s infinite}
 @keyframes pulse{50%{opacity:.45}}
 @media (prefers-reduced-motion:reduce){.act.ld{animation:none;opacity:.6}}
-/* typing indicator */
 .typing{display:flex;align-items:center;gap:9px;color:var(--mut);font-size:13px;padding:4px 2px}
-.typing .badge{width:30px;height:30px;border-radius:9px}
+.typing .badge{width:30px;height:30px;border-radius:10px}
 .typing .badge .glyph{font-size:15px}
 .dots span{display:inline-block;width:4px;height:4px;border-radius:99px;background:var(--mut);margin-right:3px;animation:bl 1.2s infinite}
 .dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
 @keyframes bl{30%{transform:translateY(-3px);opacity:.4}}
 @media (prefers-reduced-motion:reduce){.dots span{animation:none}}
-/* composer */
-#composer{display:flex;align-items:flex-end;gap:9px;padding:10px 14px calc(12px + env(safe-area-inset-bottom));max-width:760px;width:100%;margin:0 auto}
-#inp{flex:1;background:var(--card);border:1.5px solid var(--line2);border-radius:16px;padding:11px 15px;resize:none;max-height:140px;font-size:var(--chat-fs);line-height:1.5;font-family:var(--tl-font)}
-#inp:focus{outline:none;border-color:var(--blue)}
-.send{width:46px;height:46px;flex:none;border-radius:14px;background:var(--bub-user);color:#fff;display:grid;place-items:center;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18);transition:filter .15s,transform .08s}
-.send:hover{filter:brightness(1.08)}
+#composer{display:flex;align-items:flex-end;gap:9px;padding:10px 14px calc(12px + env(safe-area-inset-bottom));width:100%;border-top:1px solid var(--line);background:var(--paper)}
+#inp{flex:1;background:var(--card);border:1.5px solid var(--line2);border-radius:24px;padding:12px 19px;resize:none;max-height:140px;font-size:var(--chat-fs);line-height:1.5;font-family:var(--tl-font)}
+#inp:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.send{width:48px;height:48px;flex:none;border-radius:99px;background:var(--bub-user);color:#fff;display:grid;place-items:center;transition:filter .15s,transform .08s}
+.send{box-shadow:0 4px 14px -4px var(--blue)}
+.send:hover{filter:brightness(1.1)}
 .send:active{transform:scale(.95)}
 .send svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .send:disabled{opacity:.5}
-/* ───────────────────────── grammar tab ───────────────────────── */
+/* grammar */
 #vGrammar{padding-top:10px}
 .gwrap{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
-.gcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow)}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:17px;box-shadow:var(--shadow)}
 .ginp{width:100%;background:var(--paper);border:1.5px solid var(--line2);border-radius:12px;padding:11px 13px;resize:vertical;min-height:84px;font-size:var(--chat-fs);line-height:1.6;margin:9px 0 11px}
 .ginp:focus{outline:none;border-color:var(--blue)}
 .pill{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:13.5px;border-radius:99px;padding:6px 14px}
@@ -167,47 +165,92 @@ header{display:flex;align-items:center;gap:11px;padding:12px 14px 8px}
 .altrow:last-child{border-bottom:0}
 .altrow .txt{flex:1;font-size:var(--chat-fs);line-height:1.7}
 .altrow .act{flex:none;margin-top:2px}
-.gnote{font-size:13px;color:var(--mut);margin-top:13px;line-height:1.6}
-/* ───────────────────────── sheets ───────────────────────── */
+.gnote{font-size:13px;color:var(--mut);margin-top:13px;line-height:1.6;font-style:italic}
+/* sheets */
 .sheet{position:fixed;inset:0;z-index:60;display:flex;align-items:flex-end;justify-content:center}
-.sheet .back{position:absolute;inset:0;background:rgba(15,18,28,.45);backdrop-filter:blur(2px)}
+.sheet .back{position:absolute;inset:0;background:rgba(21,24,35,.45);backdrop-filter:blur(2px)}
 .panel{position:relative;width:100%;max-width:600px;max-height:88dvh;overflow-y:auto;background:var(--paper);border-radius:22px 22px 0 0;padding:10px 20px calc(24px + env(safe-area-inset-bottom));animation:up .22s ease}
 @keyframes up{from{transform:translateY(40px);opacity:.4}}
 @media (prefers-reduced-motion:reduce){.panel{animation:none}}
 @media (min-width:720px){.sheet{align-items:center;padding:24px}.panel{border-radius:22px;max-height:84dvh}}
 .grab{width:42px;height:4px;border-radius:99px;background:var(--line2);margin:4px auto 12px}
 .ptitle{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.ptitle h2{font-family:var(--disp);font-weight:700;font-size:20px;letter-spacing:-.01em}
+.ptitle h2{font-family:var(--disp);font-style:italic;font-weight:600;font-size:20px;letter-spacing:-.01em}
 .prow{margin-top:16px}
 .prow .lab{margin:0 2px 7px}
 .seg3{display:flex;gap:4px;background:var(--card);border:1px solid var(--line);padding:4px;border-radius:12px}
-.seg3 button{flex:1;padding:8px 4px;border-radius:8px;font-weight:600;font-size:13.5px;color:var(--mut);min-width:0}
+.seg3 button{flex:1;padding:8px 4px;border-radius:8px;font-weight:600;font-size:13px;color:var(--mut);min-width:0}
 .seg3 button.on{background:var(--blue-soft);color:var(--blue-deep);font-weight:700}
 .subhint{font-size:12px;color:var(--mut);margin-top:6px;min-height:1.2em}
 .range{width:100%;accent-color:var(--blue);margin-top:4px}
 .rl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--mut);margin-top:2px}
 .divider{border:0;border-top:1px solid var(--line);margin:20px 0 4px}
 select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--mut) 50%),linear-gradient(135deg,var(--mut) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px;background-repeat:no-repeat}
-/* toast */
 #toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(8px);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:12px;font-size:13.5px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:99;max-width:88vw;text-align:center}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-/* raw-mode warning + voice picker */
 .rawbar{margin:0 14px 8px;background:var(--red-soft);color:var(--red);border:1px dashed var(--red);border-radius:11px;padding:7px 12px;font-size:12.5px;font-weight:600;text-align:center}
 .subhint.warn{color:var(--red);font-weight:600}
 .vgrp{display:block;margin:10px 2px 6px}
-.seg3 button{font-size:13px}
-.lpick .lsrch{margin:2px 0 10px;position:sticky;top:0;z-index:5;background:var(--paper);box-shadow:0 -14px 0 var(--paper),0 6px 8px -6px rgba(0,0,0,.12)}
-.lpick .vgrp{margin-top:10px}
-.lpills{gap:6px}
-.lpill{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line2);background:var(--card);border-radius:99px;padding:5px 11px 5px 8px;transition:border-color .15s,background .15s}
-.lpill:hover{border-color:var(--blue-line)}
-.lpill.on{background:var(--blue-soft);border-color:var(--blue)}
-.lpill .lpf{font-size:12px;line-height:1}
-.lpill .lpn{font-size:13px;font-weight:600;line-height:1.2}
-.lpill.on .lpn{color:var(--blue-deep);font-weight:700}
-.settabs{margin:10px 0 4px;overflow-x:auto;scrollbar-width:none}
+/* language picker — scannable card grid */
+.gtrans{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line)}
+.gtrans .eyebrow{display:block;margin-bottom:3px}
+.gtrans-tx{font-size:calc(var(--chat-fs) - 1px);color:var(--mut);line-height:1.55}
+.lpick{display:flex;flex-direction:column}
+.lsrch-wrap{position:sticky;top:0;z-index:5;background:var(--paper);padding:2px 0 10px;box-shadow:0 -16px 0 var(--paper)}
+.lpick .lsrch{margin:0;padding-left:40px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23767D8C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'/><path d='M21 21l-4.3-4.3'/></svg>");background-repeat:no-repeat;background-position:13px 50%;background-size:17px}
+.lp-h{display:flex;align-items:center;gap:10px;margin:18px 2px 9px;font-family:var(--ui);font-size:12.5px;font-weight:700;letter-spacing:.02em;color:var(--ink)}
+.lp-h::after{content:"";flex:1;height:1px;background:var(--line);order:3}
+.lp-h-n{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--mut);background:var(--card);border:1px solid var(--line);border-radius:99px;padding:1px 8px}
+.lp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:8px}
+.lp-item{display:flex;align-items:center;gap:11px;padding:9px 12px;border:1.5px solid var(--line2);background:var(--card);border-radius:13px;text-align:start;transition:border-color .15s,background .15s,box-shadow .15s}
+.lp-item:hover{border-color:var(--blue-line)}
+.lp-item.on{border-color:var(--blue);background:var(--blue-soft);box-shadow:inset 0 0 0 1px var(--blue)}
+.lp-flag{font-size:21px;line-height:1;flex:none;width:26px;text-align:center}
+.lp-tx{display:flex;flex-direction:column;min-width:0;flex:1;line-height:1.2}
+.lp-name{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-item.on .lp-name{color:var(--blue-deep);font-weight:700}
+.lp-en{font-size:10.5px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.lp-ck{flex:none;width:18px;height:18px;display:grid;place-items:center;color:var(--blue);opacity:0;transition:opacity .15s}
+.lp-item.on .lp-ck{opacity:1}
+.lp-ck svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.lp-empty{color:var(--mut);font-size:14px;padding:18px 2px;text-align:center}
+/* confirm dialog */
+.cf-sheet{align-items:center;padding:24px;z-index:80}
+.cdialog{position:relative;width:100%;max-width:384px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px 24px 22px;box-shadow:0 26px 64px rgba(0,0,0,.28);animation:cdin .22s ease;text-align:center}
+@keyframes cdin{from{transform:scale(.94) translateY(10px)}}
+@media (prefers-reduced-motion:reduce){.cdialog{animation:none}}
+.cd-ic{width:54px;height:54px;border-radius:17px;background:var(--hl-soft);color:var(--hl);display:grid;place-items:center;margin:0 auto 15px}
+.cd-ic svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cd-title{font-family:var(--disp);font-style:italic;font-weight:600;font-size:22px;letter-spacing:-.01em;margin-bottom:8px}
+.cd-body{font-size:14px;color:var(--mut);line-height:1.65;margin-bottom:22px;max-width:300px;margin-left:auto;margin-right:auto}
+.cd-acts{display:flex;gap:10px}
+.cd-acts .btn{flex:1;padding:12px}
+.btn.danger{background:var(--red);color:#fff}
+.btn.danger:hover{filter:brightness(1.07)}
+.settabs{margin:10px 0 4px;overflow-x:auto;scrollbar-width:none;border-radius:12px}
 .settabs::-webkit-scrollbar{display:none}
-.settabs button{font-size:12.5px;padding:8px 7px;white-space:nowrap;flex:1 0 auto}
+.settabs button{font-size:12.5px;padding:8px 11px;white-space:nowrap;flex:1 0 auto;transition:color .15s,background .15s}
+.settabs button.on{box-shadow:inset 0 0 0 1px var(--blue-line)}
+/* desktop — journal sidebar layout */
+@media (min-width:980px){
+  #app{flex-direction:row;max-width:1340px}
+  #side{width:300px;display:flex;flex-direction:column;background:var(--card);border-right:1px solid var(--line);padding:28px 18px 18px}
+  [dir="rtl"] #side{border-right:0;border-left:1px solid var(--line)}
+  #side header{flex-direction:column;align-items:flex-start;gap:12px;padding:0 6px}
+  .hname{font-size:22px;white-space:nowrap}
+  .hsub{white-space:normal;margin-top:4px;line-height:1.5}
+  #tabs.seg{flex-direction:column;background:none;border:0;padding:0;margin:22px 0 0;gap:6px}
+  #tabs.seg button{text-align:start;padding:11px 15px;border-radius:12px;font-size:15px;flex:none}
+  .sideactions{position:static;margin-top:auto;display:flex;flex-direction:column;gap:4px;border-top:1px solid var(--line);padding-top:12px}
+  .sideactions .iconbtn{width:100%;height:auto;display:flex;align-items:center;justify-content:flex-start;gap:11px;padding:10px 13px;border-radius:12px;font-weight:600;font-size:14px;line-height:1.3;text-align:start}
+  .ibl{display:inline}
+  #maincol{background:var(--paper)}
+  .view{padding:22px 40px 22px}
+  #composer{padding:12px 40px calc(20px + env(safe-area-inset-bottom))}
+  .rawbar{margin:12px 40px 0}
+  #msgs{max-width:720px}
+  .gwrap{max-width:720px}
+}
 </style>
 </head>
 <body>
@@ -248,22 +291,25 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
 
 <!-- ════════ APP ════════ -->
 <div id="app" class="screen hide">
+  <aside id="side">
   <header>
     <div class="badge"><span class="glyph gl">あ</span></div>
     <div class="ht">
       <div class="hname">Linglots Mate</div>
       <div id="hSub" class="hsub"></div>
     </div>
-    <div class="hbtns">
-      <button id="newB" class="iconbtn"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 2.6-6.3"/><path d="M3 4v5h5"/></svg></button>
-      <button id="perB" class="iconbtn"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="15.5" cy="7" r="2.4"/><circle cx="7.5" cy="17" r="2.4"/></svg></button>
-      <button id="setB" class="iconbtn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2-1.2L14.2 3h-4l-.4 2.5a7 7 0 0 0-2 1.2l-2.3-1-2 3.4 2 1.5a7 7 0 0 0 0 2.4l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2 1.2l.4 2.5h4l.4-2.5a7 7 0 0 0 2-1.2l2.3 1 2-3.4-2-1.5c.06-.4.1-.8.1-1.2z"/></svg></button>
-    </div>
   </header>
   <nav id="tabs" class="seg">
     <button data-tab="chat" class="on" data-i="tabChat"></button>
     <button data-tab="grammar" data-i="tabGrammar"></button>
   </nav>
+  <div class="hbtns sideactions">
+      <button id="newB" class="iconbtn"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 2.6-6.3"/><path d="M3 4v5h5"/></svg><span class="ibl" data-i="newChat"></span></button>
+      <button id="perB" class="iconbtn"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="15.5" cy="7" r="2.4"/><circle cx="7.5" cy="17" r="2.4"/></svg><span class="ibl" data-i="psTitle"></span></button>
+      <button id="setB" class="iconbtn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2-1.2L14.2 3h-4l-.4 2.5a7 7 0 0 0-2 1.2l-2.3-1-2 3.4 2 1.5a7 7 0 0 0 0 2.4l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2 1.2l.4 2.5h4l.4-2.5a7 7 0 0 0 2-1.2l2.3 1 2-3.4-2-1.5c.06-.4.1-.8.1-1.2z"/></svg><span class="ibl" data-i="set"></span></button>
+  </div>
+  </aside>
+  <div id="maincol">
   <div id="rawBanner" class="rawbar hide"></div>
 
   <main id="vChat" class="view"><div id="msgs"></div></main>
@@ -278,11 +324,12 @@ select.inp{appearance:none;background-image:linear-gradient(45deg,transparent 50
       <div class="gcard">
         <span class="eyebrow" data-i="grTitle"></span>
         <textarea id="gInp" class="ginp tl"></textarea>
-        <button id="gBtn" class="btn prime" data-i="grBtn"></button>
+        <button id="gBtn" class="btn prime big" data-i="grBtn" style="margin-top:0"></button>
       </div>
       <div id="gOut"></div>
     </div>
   </main>
+  </div>
 </div>
 
 <!-- sheets are built by JS -->
@@ -376,7 +423,7 @@ ru:{tag:"Твой ИИ-партнёр для разговорной практи
 const store=(()=>{let ok=true,mem={};try{localStorage.setItem('__t','1');localStorage.removeItem('__t')}catch(e){ok=false}
   return{get:k=>{try{return ok?localStorage.getItem(k):(mem[k]??null)}catch(e){return mem[k]??null}},
          set:(k,v)=>{mem[k]=v;if(ok){try{localStorage.setItem(k,v)}catch(e){}}}}})();
-const DEF={geminiKey:'',azKey:'',azRegion:'',elKey:'',tts:'',model:'gemini-3.1-flash-lite',ul:'th',tl:'en',theme:'light',font:'modern',fs:16,rate:1,vsel:{},done:false,u:{gender:'m'},
+const DEF={geminiKey:'',azKey:'',azRegion:'',elKey:'',tts:'',model:'gemini-3.1-flash-lite',ul:'th',tl:'en',theme:'light',font:'trad',fs:16,rate:1,vsel:{},done:false,u:{gender:'m'},
   p:{gender:'f',age:'peer',form:'chill',level:'mid',len:'mid',emoji:true,corr:'teacher',scen:'relax',custom:''}};
 let S=(()=>{try{const r=store.get('tm.settings');if(r){const o=JSON.parse(r);return{...DEF,...o,p:{...DEF.p,...(o.p||{})},u:{...DEF.u,...(o.u||{})}}}}catch(e){}return JSON.parse(JSON.stringify(DEF))})();
 function save(){store.set('tm.settings',JSON.stringify(S))}
@@ -417,23 +464,28 @@ function applyLook(){document.documentElement.dataset.theme=S.theme;
 function scenLabel(){const map={relax:'scRelax',survival:'scSurvival',pro:'scPro',custom:'scCustom'};return LANGS[S.tl].name+' · '+t(map[S.p.scen]||'scRelax')}
 function applyI18n(){$$('[data-i]').forEach(n=>{n.textContent=t(n.dataset.i)});
   $('#inp').placeholder=t('ph');$('#gInp').placeholder=t('grPh');$('#hSub').textContent=scenLabel();
-  const rb=$('#rawBanner');rb.textContent='⚠ '+t('rawWarn');rb.classList.toggle('hide',S.p.form!=='raw');
+  const rb=$('#rawBanner');rb.textContent='⚠ '+t('rawWarn');const onChat=!$('#vChat').classList.contains('hide');rb.classList.toggle('hide',!(S.p.form==='raw'&&onChat));
   document.documentElement.lang=S.ul;document.documentElement.dir=['ar','he','fa','ur'].includes(S.ul)?'rtl':'ltr'}
 
 /* ═══════════════════ setup screen ═══════════════════ */
 function chipRow(box,sel,onPick,codes){box.innerHTML='';(codes||ULANGS).forEach(c=>{const b=el('button','chip'+(c===sel?' on':''),LANGS[c].name);b.type='button';b.onclick=()=>onPick(c);box.appendChild(b)})}
 function langPicker(box,getSel,onPick){box.className='lpick';box.innerHTML='';
+  const sw=el('div','lsrch-wrap');
   const si=el('input','inp lsrch');si.type='search';si.placeholder=t('srchPh');si.autocomplete='off';
-  const list=el('div');box.appendChild(si);box.appendChild(list);
-  const mkCards=codes=>{const gr=el('div','chips lpills');codes.forEach(c=>{
-    const b=el('button','lpill'+(getSel()===c?' on':''));b.type='button';b.title=ENAME[c].split(' (')[0];
-    b.appendChild(el('span','lpf',(FLAGS[c]||'').split(' ').filter(Boolean).slice(0,2).map(flagOf).join('')));
-    b.appendChild(el('span','lpn',LANGS[c].name));
-    b.onclick=()=>onPick(c);gr.appendChild(b)});return gr};
+  sw.appendChild(si);
+  const list=el('div','lp-list');box.appendChild(sw);box.appendChild(list);
+  const mkItem=c=>{const on=getSel()===c;
+    const b=el('button','lp-item'+(on?' on':''));b.type='button';b.title=ENAME[c].split(' (')[0];
+    b.appendChild(el('span','lp-flag',(FLAGS[c]||'').split(' ').filter(Boolean).slice(0,1).map(flagOf).join('')||'•'));
+    const tx=el('span','lp-tx');tx.appendChild(el('span','lp-name',LANGS[c].name));tx.appendChild(el('span','lp-en',ENAME[c].split(' (')[0]));
+    b.appendChild(tx);
+    const ck=el('span','lp-ck');ck.innerHTML='<svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>';b.appendChild(ck);
+    b.onclick=()=>onPick(c);return b};
+  const mkGrid=codes=>{const gr=el('div','lp-grid');codes.forEach(c=>gr.appendChild(mkItem(c)));return gr};
   const draw=q=>{list.innerHTML='';q=(q||'').trim().toLowerCase();
     if(q){const hits=LORDER.filter(c=>(LANGS[c].name+' '+ENAME[c]+' '+c).toLowerCase().includes(q));
-      list.appendChild(hits.length?mkCards(hits):el('div','subhint','—'));return}
-    LGROUPS.forEach(g=>{list.appendChild(el('span','eyebrow vgrp',t(g[0])));list.appendChild(mkCards(g[1]))})};
+      list.appendChild(hits.length?mkGrid(hits):el('div','lp-empty','\u2014'));return}
+    LGROUPS.forEach(g=>{const h=el('div','lp-h');h.appendChild(el('span',null,t(g[0])));h.appendChild(el('span','lp-h-n',String(g[1].length)));list.appendChild(h);list.appendChild(mkGrid(g[1]))})};
   si.oninput=()=>draw(si.value);draw('')}
 function renderSetup(){langPicker($('#suUl'),()=>S.ul,c=>{S.ul=c;save();if(!I18N[c])loadDynUL(c);renderSetup();applyI18n()});
   langPicker($('#suTl'),()=>S.tl,c=>{S.tl=c;save();renderSetup();applyI18n()});
@@ -445,14 +497,33 @@ $('#suGo').onclick=()=>{const k=$('#suKey').value.trim();if(!k){toast(t('eKey'))
 /* ═══════════════════ tabs & sheets ═══════════════════ */
 function switchTab(tab){$$('#tabs button').forEach(x=>x.classList.toggle('on',x.dataset.tab===tab));
   $('#vChat').classList.toggle('hide',tab!=='chat');$('#composer').classList.toggle('hide',tab!=='chat');
-  $('#vGrammar').classList.toggle('hide',tab!=='grammar')}
+  $('#vGrammar').classList.toggle('hide',tab!=='grammar');
+  $('#rawBanner').classList.toggle('hide',!(S.p.form==='raw'&&tab==='chat'))}
 $('#tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)switchTab(b.dataset.tab)});
 function openSheet(sel){$(sel).classList.remove('hide')}
 function closeSheet(sel){$(sel).classList.add('hide')}
 $$('.sheet .back').forEach(b=>b.onclick=()=>b.parentElement.classList.add('hide'));
 $('#perB').onclick=()=>{buildPersona();openSheet('#shPer')};
 $('#setB').onclick=()=>{buildSettings();openSheet('#shSet')};
-$('#newB').onclick=()=>{if(M.filter(m=>!m.hidden).length===0||confirm(t('confirmNew')))startChat()};
+/* styled confirm dialog (replaces native confirm) */
+const CANCEL={en:'Cancel',th:'ยกเลิก',ja:'キャンセル',ko:'취소',zh:'取消',hi:'रद्द करें',es:'Cancelar',fr:'Annuler',de:'Abbrechen',pt:'Cancelar',ru:'Отмена'};
+const IC_RESET='<svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 2.6-6.3"/><path d="M3 4v5h5"/></svg>';
+function uiConfirm(o){return new Promise(res=>{
+  const sh=el('div','sheet cf-sheet');const bk=el('div','back');sh.appendChild(bk);
+  const d=el('div','cdialog');d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');
+  if(o.icon!==false){const ic=el('div','cd-ic');ic.innerHTML=o.icon||IC_RESET;d.appendChild(ic)}
+  d.appendChild(el('h3','cd-title',o.title||''));
+  if(o.body)d.appendChild(el('p','cd-body',o.body));
+  const ac=el('div','cd-acts');
+  const cancel=el('button','btn ghost',o.cancel||CANCEL[S.ul]||CANCEL.en);
+  const ok=el('button','btn '+(o.danger?'danger':'prime'),o.ok||'OK');
+  ac.appendChild(cancel);ac.appendChild(ok);d.appendChild(ac);sh.appendChild(d);document.body.appendChild(sh);
+  let done=false;const close=v=>{if(done)return;done=true;document.removeEventListener('keydown',onKey);sh.remove();res(v)};
+  function onKey(e){if(e.key==='Escape')close(false);else if(e.key==='Enter')close(true)}
+  bk.onclick=()=>close(false);cancel.onclick=()=>close(false);ok.onclick=()=>close(true);
+  document.addEventListener('keydown',onKey);setTimeout(()=>{try{ok.focus()}catch(e){}},30)})}
+$('#newB').onclick=()=>{if(M.filter(m=>!m.hidden).length===0){startChat();return}
+  uiConfirm({title:t('newChat'),body:t('confirmNew'),ok:t('newChat'),icon:IC_RESET}).then(ok=>{if(ok)startChat()})};
 
 /* ═══════════════════ control builders ═══════════════════ */
 function segRow(parent,labelKey,opts,get,set,hints,onPick){const row=el('div','prow');row.appendChild(el('label','lab',t(labelKey)));
@@ -571,8 +642,9 @@ function buildSettings(){const p=$('#shSet .panel');sheetHead(p,'set','#shSet');
     lr.appendChild(ulc);p.appendChild(lr);
   }else if(settTab==='tl'){
     const lr=el('div','prow');lr.appendChild(el('label','lab',t('tl')));
-    const tlc=el('div');langPicker(tlc,()=>S.tl,c=>{if(c===S.tl)return;if(M.filter(m=>!m.hidden).length&&!confirm(t('tlWarn')))return;
-        S.tl=c;save();applyI18n();buildSettings();startChat()});
+    const tlc=el('div');langPicker(tlc,()=>S.tl,c=>{if(c===S.tl)return;
+        const go=()=>{S.tl=c;save();applyI18n();buildSettings();startChat()};
+        if(M.filter(m=>!m.hidden).length){uiConfirm({title:LANGS[c].name,body:t('tlWarn'),ok:t('newChat'),icon:IC_RESET}).then(ok=>{if(ok)go()})}else go()});
     lr.appendChild(tlc);p.appendChild(lr);
   }else{
     const ar=el('div','prow');ar.appendChild(el('label','lab',t('model')));
@@ -616,13 +688,13 @@ async function gemini(opts){if(!S.geminiKey){toast(t('eKey'));throw new Error('n
 function buildSys(){const p=S.p,TL=ENAME[S.tl],UL=ENAME[S.ul];
   const scen=(p.scen==='custom'&&p.custom.trim())?('Custom scenario set by the user: '+p.custom.trim()):(SCEN[p.scen]||SCEN.relax);
   const FORM={street:'very casual, playful street/slang style that young native speakers actually use',chill:'friendly, relaxed everyday speech',neat:'polite, well-mannered, formal speech',raw:'extremely casual and crude, the way close friends banter in movies, anime and real life: frequent natural swearing, vulgar slang, blunt teasing and rough interjections are expected and authentic. This is for receptive learning of real-world speech. Never use slurs or hateful language about groups of people — only everyday profanity between friends'}[p.form];
-  const LVL={easy:'A1–A2 (simple common words, short basic sentences)',mid:'B1–B2 (everyday vocabulary, natural variety)',hard:'C1–C2 (rich vocabulary, idioms, complex structures)'}[p.level];
+  const LVL={easy:'A1–A2 — simple, common, high-frequency words and basic grammar',mid:'B1–B2 — everyday vocabulary and a natural mix of structures',hard:'C1–C2 — rich vocabulary, idioms, nuanced and complex grammar'}[p.level];
   const LEN={short:'very short — one brief sentence',mid:'short — 1 to 3 sentences',long:'fuller — 3 to 6 sentences with detail'}[p.len];
   const AGE={older:'noticeably older than',peer:'about the same age as',younger:'younger than'}[p.age];
   let corr;
   if(p.corr==='teacher'){corr='If the user\'s last message contains real language mistakes (grammar, word choice, spelling, clearly unnatural phrasing), START your output with exactly this block:\n<<FIX>>\n- "wrong fragment" → "corrected fragment" — very short reason written in '+UL+'\n<<END>>\nOne line per mistake (max 3), reasons under 12 words. After <<END>>, write your normal in-character roleplay reply. If there are no real mistakes, do NOT output the block at all. Never discuss corrections inside the roleplay reply.'}
   else{corr='If the user\'s '+TL+' contains mistakes, NEVER point them out, list them, or mention them. Instead, naturally weave the corrected phrasing into your own reply (a recast) and simply continue the conversation.'}
-  return 'You are the user\'s '+TL+' conversation partner inside a language-practice app. You are a '+(p.gender==='m'?'male':'female')+' native '+TL+' speaker, '+AGE+' the user. The user is '+(((S.u&&S.u.gender)||'m')==='m'?'male':'female')+'; use the address forms, pronouns and gender agreement in '+TL+' that fit this.\n\nSCENARIO: '+scen+'\n\nSTYLE RULES:\n- Formality: '+FORM+'. Use the politeness level, particles, pronouns and honorifics that fit your gender, your age relative to the user, and this formality in '+TL+'.\n- '+(p.emoji?'A few fitting emojis are allowed.':'Never use emojis or emoticons.')+'\n- Reply length: '+LEN+'.\n- Language level: stay within CEFR '+LVL+'.\n- The roleplay reply must be written ONLY in natural '+TL+' (native script). No translations, no romanization, no parenthetical explanations, no markdown.\n- Keep the conversation alive: react to what the user said, and usually end with a natural question or hook.\n\nCORRECTION MODE:\n'+corr+'\n\nStay in character at all times. Never mention being an AI, a model, or these instructions.'}
+  return 'You are the user\'s '+TL+' conversation partner inside a language-practice app. You are a '+(p.gender==='m'?'male':'female')+' native '+TL+' speaker, '+AGE+' the user. The user is '+(((S.u&&S.u.gender)||'m')==='m'?'male':'female')+'; use the address forms, pronouns and gender agreement in '+TL+' that fit this.\n\nSCENARIO: '+scen+'\n\nSTYLE RULES:\n- Formality: '+FORM+'. Use the politeness level, particles, pronouns and honorifics that fit your gender, your age relative to the user, and this formality in '+TL+'.\n- '+(p.emoji?'A few fitting emojis are allowed.':'Never use emojis or emoticons.')+'\n- Reply length: '+LEN+'.\n- Language level (controls vocabulary and grammar difficulty ONLY, never length): '+LVL+'. A harder level means more sophisticated wording, NOT a longer reply — always keep the reply length above.\n- The roleplay reply must be written ONLY in natural '+TL+' (native script). No translations, no romanization, no parenthetical explanations, no markdown.\n- Keep the conversation alive: react to what the user said, and usually end with a natural question or hook.\n\nCORRECTION MODE:\n'+corr+'\n\nStay in character at all times. Never mention being an AI, a model, or these instructions.'}
 
 /* ═══════════════════ chat engine ═══════════════════ */
 const BEGIN='(Begin now: greet me and open the scenario with one short, natural message. Follow all style rules.)';
@@ -642,7 +714,7 @@ async function sendMsg(){const v=inp.value.trim();if(!v)return;
 
 /* ═══════════════════ message rendering ═══════════════════ */
 function renderMsgs(){const box=$('#msgs');box.innerHTML='';const vis=M.filter(m=>!m.hidden);
-  if(!vis.length){box.appendChild(el('div','empty',t('chEmpty')));return}
+  if(!vis.length){const e=el('div','empty');const bd=el('div','badge lg');bd.style.margin='0 auto 16px';bd.appendChild(el('span','glyph gl',GLYPHS[glyphI]));e.appendChild(bd);e.appendChild(el('div',null,t('chEmpty')));box.appendChild(e);return}
   vis.forEach(m=>box.appendChild(msgNode(m)));scrollBottom()}
 function scrollBottom(){const v=$('#vChat');v.scrollTop=v.scrollHeight}
 function rubyHtml(s){return esc(s).replace(/\{([^{}|]+)\|([^{}|]+)\}/g,'<ruby>$1<rt>$2</rt></ruby>').replace(/\n/g,'<br>')}
@@ -778,7 +850,7 @@ $('#gBtn').onclick=checkGrammar;
 async function checkGrammar(){const v=$('#gInp').value.trim();if(!v)return;
   if(!S.geminiKey){toast(t('eKey'));buildSettings();openSheet('#shSet');return}
   const btn=$('#gBtn');btn.disabled=true;btn.textContent=t('grWait');busy(true);
-  const sys='You are a strict but friendly '+ENAME[S.tl]+' grammar checker for language learners. Analyze the sentence the user sends. Respond with ONLY one JSON object, no markdown fences, no commentary, exactly this shape:\n{"correct": true|false, "corrected": "the fully corrected sentence in '+ENAME[S.tl]+' (or the original if already correct)", "fixes": [{"from":"wrong fragment","to":"fixed fragment","reason":"short reason written in '+ENAME[S.ul]+'"}], "alternatives": ["1 to 3 natural ways a native '+ENAME[S.tl]+' speaker would express the same idea"], "note": "optional one-line tip in '+ENAME[S.ul]+', else empty string"}\nIf the sentence is correct, "fixes" must be an empty array. "alternatives" must always contain at least one item.';
+  const sys='You are a strict but friendly '+ENAME[S.tl]+' grammar checker for language learners. Analyze the sentence the user sends. Respond with ONLY one JSON object, no markdown fences, no commentary, exactly this shape:\n{"correct": true|false, "corrected": "the fully corrected sentence in '+ENAME[S.tl]+' (or the original if already correct)", "fixes": [{"from":"wrong fragment","to":"fixed fragment","reason":"short reason written in '+ENAME[S.ul]+'"}], "alternatives": ["1 to 3 natural ways a native '+ENAME[S.tl]+' speaker would express the same idea"], "translation": "a natural '+ENAME[S.ul]+' translation of the corrected sentence", "note": "optional one-line tip in '+ENAME[S.ul]+', else empty string"}\nIf the sentence is correct, "fixes" must be an empty array. "alternatives" must always contain at least one item.';
   try{let out=await gemini({contents:[{role:'user',parts:[{text:v}]}],system:sys,temp:0.3,json:true});
     out=out.replace(/^```json\s*/i,'').replace(/^```\s*/,'').replace(/```\s*$/,'').trim();
     const d=JSON.parse(out);renderG(d)}
@@ -789,7 +861,10 @@ function renderG(d){const o=$('#gOut');o.innerHTML='';const c=el('div','gcard');
   if(!d.correct&&d.corrected){const s=el('div','gsec');s.appendChild(el('span','eyebrow',t('corrected')));
     const cs=el('div','corrected tl');const mk=document.createElement('mark');mk.textContent=d.corrected;cs.appendChild(mk);
     const lb=el('button','act','▶');lb.setAttribute('aria-label',t('aListen'));lb.style.marginLeft='8px';lb.onclick=()=>speak({text:d.corrected},lb);cs.appendChild(lb);
-    s.appendChild(cs);c.appendChild(s)}
+    s.appendChild(cs);
+    if(d.translation){const tr=el('div','gtrans');tr.appendChild(el('span','eyebrow',t('aTrans')));tr.appendChild(el('div','gtrans-tx',d.translation));s.appendChild(tr)}
+    c.appendChild(s)}
+  else if(d.translation){const s=el('div','gsec');s.appendChild(el('span','eyebrow',t('aTrans')));s.appendChild(el('div','gtrans-tx',d.translation));c.appendChild(s)}
   if(Array.isArray(d.fixes)&&d.fixes.length){const s=el('div','gsec');s.appendChild(el('span','eyebrow',t('fixes')));
     d.fixes.forEach(f=>{const r=el('div','fixrow');const ln=el('div','fixline');
       const de=document.createElement('del');de.textContent=f.from||'';ln.appendChild(de);
