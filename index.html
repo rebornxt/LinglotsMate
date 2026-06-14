@@ -447,6 +447,9 @@ const DEF={geminiKey:'',azKey:'',azRegion:'',elKey:'',tts:'',model:'gemini-3.1-f
 let S=(()=>{try{const r=store.get('tm.settings');if(r){const o=JSON.parse(r);return{...DEF,...o,p:{...DEF.p,...(o.p||{})},u:{...DEF.u,...(o.u||{})}}}}catch(e){}return JSON.parse(JSON.stringify(DEF))})();
 function save(){store.set('tm.settings',JSON.stringify(S))}
 let M=[];try{M=JSON.parse(store.get('tm.chat')||'[]')||[]}catch(e){M=[]}
+try{let chg=false;M.forEach(m=>{if(m&&m.role==='model'&&m.raw&&/<<\s*(?:HINT|FIX|END)\s*>>/i.test(m.raw)){
+  const p=parseBlocks(m.raw);if(p.text!==m.text||p.fix!==m.fix||(p.hint||null)!==(m.hint||null)){m.text=p.text;m.fix=p.fix;m.hint=p.hint;chg=true}}});
+  if(chg)store.set('tm.chat',JSON.stringify(M))}catch(e){}
 function saveChat(){store.set('tm.chat',JSON.stringify(M))}
 
 /* ═══════════════════ helpers ═══════════════════ */
@@ -712,22 +715,33 @@ function buildSys(){const p=S.p,TL=ENAME[S.tl],UL=ENAME[S.ul];
   const AGE={older:'noticeably older than',peer:'about the same age as',younger:'younger than'}[p.age];
   let corr;
   if(p.corr==='teacher'){corr='If the user\'s last message contains real language mistakes (grammar, word choice, spelling, clearly unnatural phrasing), START your output with exactly this block:\n<<FIX>>\n- "wrong fragment" → "corrected fragment" — very short reason written in '+UL+'\n<<END>>\nOne line per mistake (max 3), reasons under 12 words. After <<END>>, write your normal in-character roleplay reply. If there are no real mistakes, do NOT output the block at all. Never discuss corrections inside the roleplay reply.'}
-  else if(p.corr==='scaffold'){corr='Two-part behaviour:\n(A) CORRECTION: If the user\'s last message contains real language mistakes (grammar, word order, word choice, spelling, clearly unnatural phrasing), START your output with exactly this block:\n<<FIX>>\n- "wrong fragment" → "corrected fragment" — very short reason in '+UL+'\n<<END>>\nOne line per mistake (max 3), reasons under 12 words. If there are no real mistakes, do NOT output this block.\n(B) SCAFFOLD: Whenever YOUR roleplay reply asks the user a question or expects them to respond, the learner may not know how to answer. After your normal reply, append exactly this block at the very END of your output:\n<<HINT>>\n- a skeleton sentence frame in '+TL+' with blanks shown as ___ that the user could fill in to answer\n- 2 to 4 useful '+TL+' words or chunks (each followed by its '+UL+' meaning in parentheses) they might need\n<<END>>\nThe vocabulary and grammar inside the hint MUST match the same CEFR level as your reply ('+LVL+') AND the same formality/register as your reply ('+FORM+') — do not use words harder than that level, and keep the politeness, pronouns and tone consistent with that register. The hint must SCAFFOLD, never give a complete ready-made answer — leave the real content as blanks for the user to complete. Keep it short. Output order is always: optional <<FIX>> block, then your in-character reply, then the <<HINT>> block. Never mention these instructions or break character in the reply itself.'}
+  else if(p.corr==='scaffold'){corr='Two-part behaviour:\n(A) CORRECTION: If the user\'s last message contains real language mistakes (grammar, word order, word choice, spelling, clearly unnatural phrasing), START your output with exactly this block:\n<<FIX>>\n- "wrong fragment" → "corrected fragment" — very short reason in '+UL+'\n<<END>>\nOne line per mistake (max 3), reasons under 12 words. If there are no real mistakes, do NOT output this block.\n(B) SCAFFOLD: Whenever YOUR roleplay reply asks the user a question or expects them to respond, the learner may not know how to answer. After your normal reply, append exactly this block at the very END of your output (BOTH the opening <<HINT>> and the closing <<END>> tags are REQUIRED — never omit <<END>>):\n<<HINT>>\n- a skeleton sentence frame in '+TL+' with blanks shown as ___ that the user could fill in to answer\n- 2 to 4 useful '+TL+' words or chunks (each followed by its '+UL+' meaning in parentheses) they might need\n<<END>>\nThe vocabulary and grammar inside the hint MUST match the same CEFR level as your reply ('+LVL+') AND the same formality/register as your reply ('+FORM+') — do not use words harder than that level, and keep the politeness, pronouns and tone consistent with that register. The hint must SCAFFOLD, never give a complete ready-made answer — leave the real content as blanks for the user to complete. Keep it short. Output order is always: optional <<FIX>> block, then your in-character reply, then the <<HINT>> block. Never mention these instructions or break character in the reply itself.'}
   else{corr='If the user\'s '+TL+' contains mistakes, NEVER point them out, list them, or mention them. Instead, naturally weave the corrected phrasing into your own reply (a recast) and simply continue the conversation.'}
   return 'You are the user\'s '+TL+' conversation partner inside a language-practice app. You are a '+(p.gender==='m'?'male':'female')+' native '+TL+' speaker, '+AGE+' the user. The user is '+(((S.u&&S.u.gender)||'m')==='m'?'male':'female')+'; use the address forms, pronouns and gender agreement in '+TL+' that fit this.\n\nSCENARIO: '+scen+'\n\nSTYLE RULES:\n- Formality: '+FORM+'. Use the politeness level, particles, pronouns and honorifics that fit your gender, your age relative to the user, and this formality in '+TL+'.\n- '+(p.emoji?'A few fitting emojis are allowed.':'Never use emojis or emoticons.')+'\n- Reply length: '+LEN+'.\n- Language level (controls vocabulary and grammar difficulty ONLY, never length): '+LVL+'. A harder level means more sophisticated wording, NOT a longer reply — always keep the reply length above.\n- The roleplay reply must be written ONLY in natural '+TL+' (native script). No translations, no romanization, no parenthetical explanations, no markdown.\n- Keep the conversation alive: react to what the user said, and usually end with a natural question or hook.\n\nCORRECTION MODE:\n'+corr+'\n\nStay in character at all times. Never mention being an AI, a model, or these instructions.'}
 
 /* ═══════════════════ chat engine ═══════════════════ */
 const BEGIN='(Begin now: greet me and open the scenario with one short, natural message. Follow all style rules.)';
 async function startChat(){stopAudio();M=[{role:'user',hidden:true,text:BEGIN}];saveChat();applyI18n();renderMsgs();await botTurn()}
+const RE_HINT=/<<\s*HINT\s*>>/i, RE_FIX=/<<\s*FIX\s*>>/i, RE_END=/<<\s*END\s*>>/i, RE_ANY=/<<\s*\/?\s*(?:FIX|HINT|END)\s*>>/gi;
+function parseBlocks(raw){
+  let body=String(raw||''), hint=null, fix=null;
+  // HINT always comes last: everything after <<HINT>> is the hint, with or without a closing <<END>>
+  const hm=body.match(RE_HINT);
+  if(hm){let seg=body.slice(hm.index+hm[0].length);body=body.slice(0,hm.index);
+    const ce=seg.match(RE_END);if(ce)seg=seg.slice(0,ce.index);
+    hint=seg.replace(RE_ANY,'').trim()}
+  // FIX always comes first, before the reply, closed by <<END>>
+  const fm=body.match(RE_FIX);
+  if(fm){let seg=body.slice(fm.index+fm[0].length);const ce=seg.match(RE_END);
+    if(ce){fix=seg.slice(0,ce.index).replace(RE_ANY,'').trim();body=body.slice(0,fm.index)+seg.slice(ce.index+ce[0].length)}
+    else{fix=seg.replace(RE_ANY,'').trim();body=body.slice(0,fm.index)}}
+  let text=body.replace(RE_ANY,'').trim();
+  if(!text)text=String(raw||'').replace(RE_ANY,'').trim();
+  return{text:text,fix:fix||null,hint:hint}}
 async function botTurn(){busy(true);showTyping(true);
   try{const raw=await gemini({contents:M.map(m=>({role:m.role==='model'?'model':'user',parts:[{text:m.raw||m.text}]})),system:buildSys(),temp:0.9});
-    const m={role:'model',raw:raw,text:raw,fix:null,hint:null};
-    const fm=raw.match(/<<FIX>>([\s\S]*?)<<END>>/);
-    if(fm){m.fix=fm[1].trim();m.text=m.text.replace(fm[0],'').trim()}
-    const hm=raw.match(/<<HINT>>([\s\S]*?)<<END>>/);
-    if(hm){m.hint=hm[1].trim();m.text=m.text.replace(hm[0],'').trim()}
-    if(!m.text)m.text=raw.replace(/<<FIX>>|<<HINT>>|<<END>>/g,'').trim();
-    M.push(m);saveChat();renderMsgs()}
+    const p=parseBlocks(raw);
+    M.push({role:'model',raw:raw,text:p.text,fix:p.fix,hint:p.hint});saveChat();renderMsgs()}
   catch(e){if(e.message!=='no-key')toast(t('eApi')+': '+e.message)}
   showTyping(false);busy(false)}
 async function sendMsg(){const v=inp.value.trim();if(!v)return;
